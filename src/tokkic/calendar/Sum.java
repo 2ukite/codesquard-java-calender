@@ -15,10 +15,13 @@ public class Sum {
 		a = Integer.parseInt(s1);
 		b = Integer.parseInt(s2);
 		
-		System.out.println(a);
-		System.out.println(b);		
+//		System.out.println(a);
+//		System.out.println(b);				
+				
+		//  화면에 두 수의 합을 출력하기
+		System.out.printf("%d와 %d의 합은 %d 입니다",a,b,a+b);
 		
 		scan.close();
-				
+		
         	}
 }
