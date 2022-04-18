@@ -4,23 +4,18 @@ import java.util.Scanner;
 
 public class Sum {
 	public static void main(String[] args) {
-		int a, b;
 
-		// 키보드로 두 수의 입력 받기
+		System.out.println("달을 입력하세요");
+
+		// 키보드로 입력 받기
 		Scanner scan = new Scanner(System.in);
-		String s1, s2;
-		System.out.println("두 수를 입력해주세요");
-		s1 = scan.next();
-		s2 = scan.next();
-		
-		a = Integer.parseInt(s1);
-		b = Integer.parseInt(s2);
-
-//		System.out.println(s1);
-//		System.out.println(s2);
+		byte s1, s2;
+		byte month_day[] = {31, 29, 31, 30, 31, 30 ,31, 31, 30, 31, 30, 31};
+		s1 = scan.nextByte();
+		s2 = month_day[s1-1];
 
 		//  화면에 두 수의 합을 출력하기
-		System.out.printf("%d와 %d의 합은 %d 입니다", a, b, a + b);
+		System.out.printf("%d월은 %d일까지 있습니다.",s1, s2);
 		scan.close();
 		
 	}
