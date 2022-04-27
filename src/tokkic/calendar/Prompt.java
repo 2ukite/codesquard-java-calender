@@ -8,9 +8,14 @@ public class Prompt {
 	private final static String PROMPT_M = "MONTH>";
 	private final static String PROMPT_W = "DAY OF WEEK ON 1st DAY>";
 
+	int weekday_num; // 변수 선언해야 아래에서 변수로 쓸수있다
+	int year;
+	int month;
+	String weekday;
+	int nthDay;
+
 	public int parseDay(String w) { // 메소드 선언, String 타입의 w를 가진다
 									// w 값은 추후 입력
-		int weekday_num; // 변수 선언해야 아래에서 변수로 쓸수있다
 
 		switch (w) { // 메소드에서 입력받은 w의 조건을 case로 판단한다
 		case "sun":
@@ -44,9 +49,6 @@ public class Prompt {
 
 		Scanner scan = new Scanner(System.in);
 		Calendar cld = new Calendar();
-		int year;
-		int month;
-		String weekday;
 
 		while (true) {
 
@@ -78,13 +80,12 @@ public class Prompt {
 						|| weekday.equals("thu") || weekday.equals("fri") || weekday.equals("sat")) {
 					break;
 				} else {
-					System.out.println("아래의 요일 중 하나를 골라서 입력해주세요");
+					System.out.println("아래의 요일 중 하나를 골라서 다시 입력해주세요");
 					continue;
 				}
 			}
 
-			parseDay(weekday); // 입력한 변수를 메소드에 인자로 넣음
-			cld.printCalendar(year, month);
+			cld.printCalendar(year, month, weekday);
 		}
 		System.out.println("입력을 종료합니다");
 		scan.close();
