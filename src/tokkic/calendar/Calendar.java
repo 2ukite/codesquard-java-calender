@@ -19,6 +19,9 @@ public class Calendar {
 		Prompt prom = new Prompt();
 		wDay_num = prom.parseDay(weekday);
 		blankDay = 7 - wDay_num;
+		if (blankDay==7) {
+			blankDay = 0;
+		}
 		int maxDay = getMaxDaysofMMonth(year, month);
 
 		System.out.printf("    <<%4d년 % 3d월>>\n", year, month);
