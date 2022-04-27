@@ -5,11 +5,20 @@ public class Calendar {
 	private static final int[] MAX_DAYS = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	private static final int[] MAX_LEAP_DAYS = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
+	public boolean isLeapYear(int year) {
+		if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public int getMaxDaysofMMonth(int year, int month) {
-		if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+		if (isLeapYear(year)) {
 			return MAX_LEAP_DAYS[month - 1];
-		else
+		} else {
 			return MAX_DAYS[month - 1];
+		}
 	}
 
 	public void printCalendar(int year, int month, String weekday) {
@@ -19,7 +28,7 @@ public class Calendar {
 		Prompt prom = new Prompt();
 		wDay_num = prom.parseDay(weekday);
 		blankDay = 7 - wDay_num;
-		if (blankDay==7) {
+		if (blankDay == 7) {
 			blankDay = 0;
 		}
 		int maxDay = getMaxDaysofMMonth(year, month);
